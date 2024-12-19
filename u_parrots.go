@@ -1970,7 +1970,7 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
 				}},
 				&KeyShareExtension{[]KeyShare{
 					{Group: CurveID(GREASE_PLACEHOLDER), Data: []byte{0}},
-					{Group: X25519MLKEM768Draft00},
+					{Group: X25519MLKEM768},
 					{Group: X25519},
 				}},
 				&GREASEEncryptedClientHelloExtension{
@@ -2010,7 +2010,7 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
 				&SNIExtension{},
 				&SupportedCurvesExtension{[]CurveID{
 					CurveID(GREASE_PLACEHOLDER),
-					X25519MLKEM768Draft00,
+					X25519MLKEM768,
 					X25519,
 					CurveP256,
 					CurveP384,
