@@ -13,7 +13,7 @@ import (
 	"hash"
 	"log"
 
-	"github.com/refraction-networking/utls/internal/helper"
+	"github.com/ficoto/utls/internal/helper"
 	"golang.org/x/crypto/cryptobyte"
 )
 
@@ -175,6 +175,11 @@ const (
 	helloSafari           = "Safari"
 	hello360              = "360Browser"
 	helloQQ               = "QQBrowser"
+	helloBrave            = "Brave"
+	helloDuckDuckGo       = "DuckDuckGo"
+	helloOpera            = "Opera"
+	helloYandex           = "Yandex"
+	helloCURL             = "curl"
 
 	// versions
 	helloAutoVers = "0"
@@ -643,12 +648,14 @@ var (
 	HelloIOS_12_1 = ClientHelloID{helloIOS, "12.1", nil, nil}
 	HelloIOS_13   = ClientHelloID{helloIOS, "13", nil, nil}
 	HelloIOS_14   = ClientHelloID{helloIOS, "14", nil, nil}
+	HelloIOS_16   = ClientHelloID{helloIOS, "16", nil, nil}
 
 	HelloAndroid_11_OkHttp = ClientHelloID{helloAndroid, "11", nil, nil}
 
-	HelloEdge_Auto = HelloEdge_85 // HelloEdge_106 seems to be incompatible with this library
-	HelloEdge_85   = ClientHelloID{helloEdge, "85", nil, nil}
-	HelloEdge_106  = ClientHelloID{helloEdge, "106", nil, nil}
+	HelloEdge_Auto        = HelloEdge_85 // HelloEdge_106 seems to be incompatible with this library
+	HelloEdge_85          = ClientHelloID{helloEdge, "85", nil, nil}
+	HelloEdge_106         = ClientHelloID{helloEdge, "106", nil, nil}
+	HelloEdge_android_131 = ClientHelloID{helloEdge, "131_android", nil, nil}
 
 	HelloSafari_Auto = HelloSafari_16_0
 	HelloSafari_16_0 = ClientHelloID{helloSafari, "16.0", nil, nil}
@@ -659,6 +666,15 @@ var (
 
 	HelloQQ_Auto = HelloQQ_11_1
 	HelloQQ_11_1 = ClientHelloID{helloQQ, "11.1", nil, nil}
+
+	HelloBrave_android_1_73_101           = ClientHelloID{helloBrave, "1.73.101_android", nil, nil}
+	HelloDuckDuckGo_android_5_221_0       = ClientHelloID{helloDuckDuckGo, "5.221.0_android", nil, nil}
+	HelloOpera_android_5_2_1              = ClientHelloID{helloOpera, "5.2.1_android", nil, nil}
+	HelloYandexMap_android_21_6_0         = ClientHelloID{helloYandex, "21.6.0_map_android", nil, nil}
+	HelloYandexGo_android_5_8_2           = ClientHelloID{helloYandex, "5.8.2_go_android", nil, nil}
+	HelloYandexStart_android_24_12_0      = ClientHelloID{helloYandex, "24.12.0_start_android", nil, nil}
+	HelloYandexBrowser_android_24_12_1_98 = ClientHelloID{helloYandex, "24.12.1.98_browser_android", nil, nil}
+	HelloCURL_7_80_0                      = ClientHelloID{helloCURL, "7.80.0", nil, nil}
 )
 
 type Weights struct {
