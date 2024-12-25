@@ -1668,7 +1668,7 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
 					VersionTLS10,
 				}},
 				&UtlsCompressCertExtension{[]CertCompressionAlgo{
-					CertCompressionBrotli,
+					CertCompressionZlib,
 				}},
 				&UtlsGREASEExtension{},
 				&UtlsPaddingExtension{GetPaddingLen: BoringPaddingStyle},
@@ -2807,8 +2807,6 @@ func utlsIdToSpec(id ClientHelloID) (ClientHelloSpec, error) {
 		}, nil
 	case HelloDuckDuckGo_android_5_221_0:
 		return ClientHelloSpec{
-			TLSVersMin: VersionTLS12,
-			TLSVersMax: VersionTLS13,
 			CipherSuites: []uint16{
 				TLS_AES_128_GCM_SHA256,
 				TLS_AES_256_GCM_SHA384,
