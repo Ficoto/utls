@@ -14,7 +14,7 @@ import (
 
 	"github.com/cloudflare/circl/kem"
 	"github.com/cloudflare/circl/kem/hybrid"
-	"github.com/refraction-networking/utls/internal/mlkem768"
+	"github.com/ficoto/utls/internal/mlkem768"
 )
 
 // ClientHandshakeState includes both TLS 1.3-only and TLS 1.2-only states,
@@ -859,34 +859,29 @@ func (TKS TicketKeys) ToPrivate() []ticketKey {
 	return tks
 }
 
-type kemPrivateKey struct {
-	secretKey kem.PrivateKey
-	curveID   CurveID
-}
-
 type KemPrivateKey struct {
 	SecretKey kem.PrivateKey
 	CurveID   CurveID
 }
 
-func (kpk *KemPrivateKey) ToPrivate() *kemPrivateKey {
-	if kpk == nil {
-		return nil
-	} else {
-		return &kemPrivateKey{
-			secretKey: kpk.SecretKey,
-			curveID:   kpk.CurveID,
-		}
-	}
-}
-
-func (kpk *kemPrivateKey) ToPublic() *KemPrivateKey {
+func (kpk *KemPrivateKey) ToPrivate() *KemPrivateKey {
 	if kpk == nil {
 		return nil
 	} else {
 		return &KemPrivateKey{
-			SecretKey: kpk.secretKey,
-			CurveID:   kpk.curveID,
+			SecretKey: kpk.SecretKey,
+			CurveID:   kpk.CurveID,
+		}
+	}
+}
+
+func (kpk *KemPrivateKey) ToPublic() *KemPrivateKey {
+	if kpk == nil {
+		return nil
+	} else {
+		return &KemPrivateKey{
+			SecretKey: kpk.SecretKey,
+			CurveID:   kpk.CurveID,
 		}
 	}
 }

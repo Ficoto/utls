@@ -18,7 +18,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/refraction-networking/utls/internal/mlkem768"
+	"github.com/ficoto/utls/internal/mlkem768"
 
 	"github.com/cloudflare/circl/kem"
 )
