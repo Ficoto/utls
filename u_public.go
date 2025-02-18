@@ -865,24 +865,24 @@ type KemPrivateKey struct {
 	CurveID   CurveID
 }
 
-func (kpk *KemPrivateKey) ToPrivate() *kemPrivateKey {
-	if kpk == nil {
-		return nil
-	} else {
-		return &kemPrivateKey{
-			secretKey: kpk.SecretKey,
-			curveID:   kpk.CurveID,
-		}
-	}
-}
-
-func (kpk *kemPrivateKey) ToPublic() *KemPrivateKey {
+func (kpk *KemPrivateKey) ToPrivate() *KemPrivateKey {
 	if kpk == nil {
 		return nil
 	} else {
 		return &KemPrivateKey{
-			SecretKey: kpk.secretKey,
-			CurveID:   kpk.curveID,
+			SecretKey: kpk.SecretKey,
+			CurveID:   kpk.CurveID,
+		}
+	}
+}
+
+func (kpk *KemPrivateKey) ToPublic() *KemPrivateKey {
+	if kpk == nil {
+		return nil
+	} else {
+		return &KemPrivateKey{
+			SecretKey: kpk.SecretKey,
+			CurveID:   kpk.CurveID,
 		}
 	}
 }
