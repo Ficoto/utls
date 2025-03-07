@@ -1,6 +1,6 @@
 module github.com/ficoto/utls
 
-go 1.24.0
+go 1.23
 
 retract (
 	v1.4.1 // #218
